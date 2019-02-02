@@ -1,0 +1,252 @@
+/* 
+    * - универсальный селектор все элементы 
+*/
+
+* {
+    box-sizing: border-box;
+}
+
+/* 
+    body - селектор по тегу 
+*/
+
+body {
+    height: 1300px;
+    padding: 30px;
+    font-family: sans-serif;
+    color: #EDEEF3;
+    background-color: #3a3a3a;
+}
+
+em {
+    color: #ffbf49;
+}
+
+/* p {
+    border: 2px solid #5bcee8;
+} */
+
+a {
+    color: #3D747C;
+}
+
+/* 
+    .container - селектор по классу 
+*/
+
+.container {
+    background-color: #D2B48C;
+    padding: 20px;
+}
+
+/* 
+    #first-link - селектор по id 
+*/
+
+#first-link {
+    color: #8B0D6C;
+}
+
+/* 
+    [alt=""] - селектор атрибута 
+*/
+
+img {
+    width: 100px;
+}
+
+img[alt=""] {
+    border: 6px solid pink;
+}
+
+/* Селекторы отношений */
+
+/* 
+    Контекстный селектор - выбирает элементы, являющиеся прямыми потомками. 
+*/
+
+/* .selectors-example ul {
+    background: #b3b2b2;
+} */
+
+/* 
+    ">" - Непосредственные потомки - элементы, которые являются потомками первого уровня. 
+    Он говорит о том, что только те элементы, которые являются моими детьми (прямыми наследниками),
+    только для них будет срабатывать это свойство.
+*/
+
+/* .selectors-example > ul {
+    background: #EBCAEB;
+} */
+
+/* Если хотим написать правило для внуков:
+.selectors-example > ul > li { ... } */
+
+/* 
+    "~" - Правые соседи: все li на том же уровне вложенности, который идёт сразу после .list-item-2,
+    если есть. 
+    Он говорит о том, что ко всем правым соседям после этого вот li будут применены свойства. 
+    Правые подразумевает следующие (те, которые написаны ниже). 
+*/
+
+/* .selectors-example .list-1 li~li {
+    background: #5F96DF;
+} */
+
+/* "+" - Первый правый сосед: li на том же уровне вложенности, который идёт сразу после .list-item-2,
+если есть. */
+
+/* .selectors-example .list-item-2 + li {
+    color: red;
+} */
+
+/* 
+    PSEUDO-SELECTORS 
+*/
+
+/* 
+    селекторы состояния:
+*/
+
+/* - при наведении на элемент будет срабатывать правило:
+
+a:hover {
+    color: orange;
+} 
+*/
+
+/* - применяется, когда элемент активен (например, зажимаем ссылку - она становится активной): 
+
+а:focus {
+    color: red;
+} 
+*/
+
+/* - при переходе срабатывает правило: 
+
+a:active {
+    color: green;
+}
+*/
+
+/* - правило сработает при переходе по ссылке (например): 
+
+a:visited {
+    color: grey;
+}
+*/
+
+/* - при наведении на ссылку будет исчезать текст: */
+
+.show-target:hover .target {
+    display: none;
+}
+
+
+/* - при наведении на элементы списка, будет появляться фиолетовый фон:
+li:hover {
+    background: purple;
+}
+*/
+
+/* PSEUDO-ELEMENTS */
+
+/* 
+    Мы можем контролировать ПОРЯДОК ЭЛЕМЕНТОВ:
+*/
+
+/* 
+.list-2 li:first-child {
+    color: red;
+} 
+*/
+
+/*
+.list-2 li:last-child {
+    color: green;
+}
+*/
+
+/*
+.list-2 li:nth-child(3) {
+    color: #7B7BE9;
+}
+*/
+
+/*
+.list-2 li:nth-last-child(odd) {
+    color: grey;
+}
+*/
+
+.test p:nth-child(even) {
+    color: purple;
+}
+
+.test:before {
+    content: '';
+    display: block;
+    width: 100%;
+    height: 50px;
+    background: pink;
+}
+
+/* простой пример: */
+
+.quote:before {
+    content: '"';
+}
+
+.quote:after {
+    content: '"';
+}
+
+/* для очистки потока (float): */
+
+.clearfix:after { /* cоздаём класс с общепризнанным названием clearfix */
+    content: '';
+    display: table; /*  добавляем для кроссбраузерности*/
+    clear: both;
+} 
+
+.test p {
+    width: 25%;
+    float: left;
+}
+
+/*
+Для псевдо-элементов :before и :after важно задать свойство content c "''". 
+Без него правило не будет работать! 
+*/
+
+/* 
+a:before {
+    content: '';
+} 
+*/
+
+/* 
+a:after {
+    content: '';
+} 
+*/
+
+/* 
+#first-link:after {
+    content: '';
+    position: absolute;
+    margin-top: -5px;
+    width: 10px;
+    text-align: center;
+    height: 10px;
+    background-color: red;
+} 
+*/
+
+/* 
+.clearfix:after {
+    content: '';
+    display: table;
+    clear: both;
+} 
+*/

@@ -1,0 +1,53 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 50px;
+    background: black;
+    color: white;
+    font-family: sans-serif;
+    font-weight: 20px;
+}
+
+.rel {
+    position: relative;
+}
+
+.rel-par {
+    padding: 20px;
+    line-height: 24px;
+    background-color: lightgoldenrodyellow;
+    color: black;
+}
+
+.rel .exclamation-marks {
+    position: absolute;
+    right: 10px;
+    top: -10px;
+    color: purple;
+    font-weight: 700;
+    font-size: 20px;
+}
+
+.fixed {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+}
+
+.fixed-par {
+    padding: 30px;
+    background: lightpink;
+    color: black;
+}
+
+.fixed .exclamation-marks {
+    position: absolute;
+    right: 10px;
+    top: 5px;
+    color: purple;
+    font-weight: 700;
+    font-size: 20px;
+}

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="./styles.css">
+    <title>Practice-7</title>
+</head>
+<body>
+    <div class="container selectors-example" id="some-container">
+        <div>
+            <img src="https://image.flaticon.com/teams/slug/freepik.jpg" alt="">
+            <img src="https://image.flaticon.com/teams/slug/freepik.jpg" alt="some text here">
+        </div>
+        <!-- Специфичность -> правило, которое определяет на сколько точно мы указали элемент.  -->
+        <!-- ul {} - обращение ко всем спискам 
+            div ul {} - обращение ко всем спискам внутри div 
+            .container ul {} - обращение к списку внутри элемента с классом container
+            .container .selectors-example {} - применяются какие-то свойства ко всем элементам с этими 
+            двумя классами. Наследуются line-height, font-size, color (в основном, наследуются все свойства,
+            относящиеся к тексту), box-sizing. 
+            .container .selectors-example ul {} - именно внутри этого элемента с двумя классами будут 
+            применены свойства для этого списка
+            #some-container ul {} - будет самое точное правило, применяющееся для списка внутри элемента 
+            с таким айдишником -->
+            <!-- https://specificity.keegan.st - сайт (калькулятор специфичности), 
+            где можно высчитать вес селекторов:
+            самые слабые - элементы и псевдоэлементы;
+            потом классы и атрибуты, 
+            потом айдишники,
+            потом строчные стили. -->
+            <style>
+                .list { /* это правило общее для всех списков */
+                    color: orange;
+                    font-size: 20px;
+                    padding: 20px;
+                }
+
+                .list-accent { /* это правило выступает в роли модификатора */
+                    color: red;
+                }
+
+                /* из этого следует, что специфичность определяет последовательность, 
+                в которой записываются правила из-за того, что одно может перезаписать другое */
+
+                /* ЧЕМ СЛОЖНЕЕ СЕЛЕКТОР, ТЕМ СЛОЖНЕЕ ЕГО ПЕРЕЗАПИСАТЬ,
+                по этому стараемся, чтобы вложенностей было не более трёх.
+                Идеально -> две вложенности */
+            </style>
+        <ul class="list-1 list list-accent">
+            <li><a href="#" id="first-link">item 1</a> - lorem ipsum</li>
+            <li class="list-item-2"><a href="#">item 2</a> - lorem ipsum</li>
+            <li><a class="show-target" href="#">item 3<span class="target">text text text</span></a> - lorem ipsum</li>
+            <li><a href="#">item 4</a> - lorem ipsum</li>
+            <li><a href="#">item 5</a> - lorem ipsum</li>
+        </ul>
+        <div class="container-lvl-2" >
+            <ul class="list-2 list">
+                <li><a href="#">item 1</a> - lorem ipsum</li>
+                <li><a href="#">item 2</a> - lorem ipsum</li>
+                <li><a href="#">item 3</a> - lorem ipsum</li>
+                <li><a href="#">item 4</a> - lorem ipsum</li>
+                <li><a href="#">item 5</a> - lorem ipsum</li>
+            </ul>
+        </div>
+        <ul class="list-3">
+            <li><a href="#">item 1</a> - lorem ipsum</li>
+            <li><a href="#">item 2</a> - lorem ipsum</li>
+            <li><a href="#">item 3</a> - lorem ipsum</li>
+            <li><a href="#">item 4</a> - lorem ipsum</li>
+            <li><a href="#">item 5</a> - lorem ipsum</li>
+        </ul>
+        <div class="test clearfix">
+            <p><span class="quote">Lorem ipsum</span> dolor sit, amet consectetur adipisicing elit. Ratione reprehenderit hic corrupti alias ullam harum cupiditate, mollitia, aspernatur reiciendis et nostrum fuga fugiat dolorum? Voluptatibus odit vel molestiae ipsa cupiditate?</p>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit ducimus repellat voluptatem suscipit commodi cupiditate! Molestias accusantium voluptas dolorem. Cupiditate molestiae minima dolor aperiam vel quisquam vitae voluptate dolore ab.</p>
+            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dolores adipisci molestias at nihil sapiente tempore placeat quibusdam nam dolorem perspiciatis tempora laudantium beatae saepe, excepturi minus, quae aliquid temporibus inventore!</p>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium id quisquam quo sint ad culpa ipsa. Illo nostrum nam eaque modi excepturi non? Doloremque fugit quod ipsum deleniti? Itaque, voluptate?</p>
+        </div>
+    </div>
+</body>
+</html>
